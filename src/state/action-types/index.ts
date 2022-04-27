@@ -14,6 +14,12 @@ export enum ActionType {
   DELETE_USER = "user_delete",
   UPDATE_USER = "update_user",
 
+  //Providers
+  NEW_PROVIDER = "new_provider",
+  GET_ALL_PROVIDERS = "providers_loaded",
+  DELETE_PROVIDER = "providers_delete",
+  UPDATE_PROVIDER = "provider_update",
+
   //UI
   OPEN_SIDEBAR = "ui_open_sidebar",
   CLOSE_SIDEBAR = "ui_close_sidebar",

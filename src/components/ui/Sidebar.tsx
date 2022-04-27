@@ -18,7 +18,12 @@ import { Link } from "react-router-dom";
 
 const menuItems = [
   { text: "Dashboard", path: "/", icon: <InboxOutlinedIcon /> },
-  { text: "Usuarios", path: "/users", icon: <InboxOutlinedIcon /> },
+  { text: "Usuarios", path: "/usuarios", icon: <InboxOutlinedIcon /> },
+  {
+    text: "Proveedores",
+    path: "/proveedores",
+    icon: <MailOutlineOutlinedIcon />,
+  },
 ];
 
 export const Sidebar = () => {

@@ -7,3 +7,4 @@ export * from "./ui/CustomTable";
 export * from "./ui/Navbar";
 export * from "./ui/Sidebar";
 export * from "./ui/Sidebar";
+export * from "./ui/MainAll";

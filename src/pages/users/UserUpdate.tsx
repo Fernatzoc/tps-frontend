@@ -34,7 +34,7 @@ export const UserUpdate = () => {
     dispatch(
       updateUser(id, values.name, values.email, values.role, values.password)
     );
-    navigate("/users");
+    navigate("/usuarios");
   };
 
   return (

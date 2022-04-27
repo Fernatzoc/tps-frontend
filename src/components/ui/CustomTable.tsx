@@ -5,11 +5,11 @@ import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import { User } from "../../interfaces";
+import { Proveedor, User } from "../../interfaces";
 
 interface Props {
   deleteItem: (id: string) => void;
-  data: User[];
+  data: User[] | Proveedor[];
   titles: String[];
 }
 
@@ -31,7 +31,7 @@ export const CustomTable: FC<Props> = ({ deleteItem, data, titles }) => {
           color="warning"
           variant="contained"
           component={Link}
-          to={`update/${params.row.id}`}
+          to={`actualizar/${params.row.id}`}
           startIcon={<EditOutlinedIcon />}
         >
           Editar

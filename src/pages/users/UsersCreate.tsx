@@ -28,7 +28,7 @@ export const UsersCreate = () => {
     dispatch(
       startNewUser(values.name, values.email, values.role, values.password)
     );
-    navigate("/users");
+    navigate("/usuarios");
   };
 
   return (

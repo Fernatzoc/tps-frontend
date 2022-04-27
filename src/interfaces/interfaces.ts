@@ -18,6 +18,16 @@ export interface User {
   updated_at: Date;
 }
 
+export interface Proveedor {
+  nombre: string;
+  telefono: string;
+  direccion: string;
+  correo: string;
+  updated_at: Date;
+  created_at: Date;
+  id: string;
+}
+
 export enum Role {
   Administrador = "Administrador",
   Visualizador = "Visualizador",
