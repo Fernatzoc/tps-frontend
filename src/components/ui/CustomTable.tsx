@@ -5,11 +5,11 @@ import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import { Proveedor, User } from "../../interfaces";
+import { Category, Proveedor, User } from "../../interfaces";
 
 interface Props {
   deleteItem: (id: string) => void;
-  data: User[] | Proveedor[];
+  data: User[] | Proveedor[] | Category[];
   titles: String[];
 }
 

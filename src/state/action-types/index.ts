@@ -20,6 +20,12 @@ export enum ActionType {
   DELETE_PROVIDER = "providers_delete",
   UPDATE_PROVIDER = "provider_update",
 
+  //Providers
+  NEW_CATEGORY = "new_category",
+  GET_ALL_CATEGORIES = "categories_loaded",
+  DELETE_CATEGORY = "category_delete",
+  UPDATE_CATEGORY = "category_update",
+
   //UI
   OPEN_SIDEBAR = "ui_open_sidebar",
   CLOSE_SIDEBAR = "ui_close_sidebar",

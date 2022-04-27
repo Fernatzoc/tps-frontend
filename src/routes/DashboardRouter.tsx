@@ -3,6 +3,9 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "../components";
 import {
   Dashboard,
+  CategoriesPage,
+  CategoryCreate,
+  CategoryUpdate,
   ProviderCreate,
   ProvidersPage,
   ProviderUpdate,
@@ -30,6 +33,13 @@ export const DashboardRouter = () => {
           <Route
             path="proveedores/actualizar/:id"
             element={<ProviderUpdate />}
+          />
+
+          <Route path="categorias" element={<CategoriesPage />} />
+          <Route path="categorias/nuevo" element={<CategoryCreate />} />
+          <Route
+            path="categorias/actualizar/:id"
+            element={<CategoryUpdate />}
           />
 
           <Route path="*" element={<Navigate replace to="/" />} />

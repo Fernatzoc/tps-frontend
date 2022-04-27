@@ -24,6 +24,11 @@ const menuItems = [
     path: "/proveedores",
     icon: <MailOutlineOutlinedIcon />,
   },
+  {
+    text: "Categorias",
+    path: "/categorias",
+    icon: <MailOutlineOutlinedIcon />,
+  },
 ];
 
 export const Sidebar = () => {

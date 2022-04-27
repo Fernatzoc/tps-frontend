@@ -6,3 +6,6 @@ export * from "./users/UserUpdate";
 export * from "./providers/ProvidersPage";
 export * from "./providers/ProviderCreate";
 export * from "./providers/ProviderUpdate";
+export * from "./categories/CategoriesPage";
+export * from "./categories/CategoryCreate";
+export * from "./categories/CategoryUpdate";

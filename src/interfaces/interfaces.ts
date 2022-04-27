@@ -32,3 +32,10 @@ export enum Role {
   Administrador = "Administrador",
   Visualizador = "Visualizador",
 }
+
+export interface Category {
+  nombre: string;
+  updated_at: Date;
+  created_at: Date;
+  id: string;
+}
