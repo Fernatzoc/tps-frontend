@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter,  Route, Routes } from "react-router-dom";
 import { Box, CircularProgress } from "@mui/material";
 import { RootState } from "../state";
 import { startChecking } from "../state/action-creators/auth";
@@ -30,7 +30,7 @@ export const AppRouter = () => {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route
           path="/login"
@@ -50,6 +50,6 @@ export const AppRouter = () => {
           }
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };

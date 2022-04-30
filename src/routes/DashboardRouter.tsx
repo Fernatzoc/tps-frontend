@@ -6,12 +6,14 @@ import {
   CategoriesPage,
   CategoryCreate,
   CategoryUpdate,
-  ProviderCreate,
   ProvidersPage,
-  ProviderUpdate,
+  ProviderCreate,
   UsersCreate,
   UsersPage,
   UserUpdate,
+  ProductsPage,
+  ProductCreate,
+  ProductUpdate,
 } from "../pages";
 import { RootState } from "../state";
 
@@ -32,7 +34,7 @@ export const DashboardRouter = () => {
           <Route path="proveedores/nuevo" element={<ProviderCreate />} />
           <Route
             path="proveedores/actualizar/:id"
-            element={<ProviderUpdate />}
+            element={<ProductUpdate />}
           />
 
           <Route path="categorias" element={<CategoriesPage />} />
@@ -41,6 +43,10 @@ export const DashboardRouter = () => {
             path="categorias/actualizar/:id"
             element={<CategoryUpdate />}
           />
+
+          <Route path="productos" element={<ProductsPage />} />
+          <Route path="productos/nuevo" element={<ProductCreate />} />
+          <Route path="productos/actualizar/:id" element={<ProductUpdate />} />
 
           <Route path="*" element={<Navigate replace to="/" />} />
         </Route>

@@ -9,3 +9,6 @@ export * from "./providers/ProviderUpdate";
 export * from "./categories/CategoriesPage";
 export * from "./categories/CategoryCreate";
 export * from "./categories/CategoryUpdate";
+export * from "./products/ProductsPage";
+export * from "./products/ProductCreate";
+export * from "./products/ProductUpdate";
