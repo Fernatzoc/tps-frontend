@@ -26,6 +26,12 @@ export enum ActionType {
   DELETE_CATEGORY = "category_delete",
   UPDATE_CATEGORY = "category_update",
 
+  //Products
+  NEW_PRODUCT = "new_product",
+  GET_ALL_PRODUCTS = "products_loaded",
+  DELETE_PRODUCT = "product_delete",
+  UPDATE_PRODUCT = "product_update",
+
   //UI
   OPEN_SIDEBAR = "ui_open_sidebar",
   CLOSE_SIDEBAR = "ui_close_sidebar",

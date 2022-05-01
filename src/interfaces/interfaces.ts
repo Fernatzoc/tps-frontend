@@ -28,6 +28,16 @@ export interface Proveedor {
   id: string;
 }
 
+export interface Product {
+  id: string;
+  nombre: string;
+  stock: number;
+  id_proveedor: number;
+  id_categoria: number;
+  created_at: Date;
+  updated_at: Date;
+}
+
 export enum Role {
   Administrador = "Administrador",
   Visualizador = "Visualizador",

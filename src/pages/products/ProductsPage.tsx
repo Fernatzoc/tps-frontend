@@ -3,33 +3,34 @@ import { useDispatch, useSelector } from "react-redux";
 import { CustomTable, Layout, MainAll } from "../../components";
 import { RootState } from "../../state";
 import {
-  deleteProvider,
-  getAllProviders,
-} from "../../state/action-creators/providers";
+  deleteProduct,
+  getAllProducts,
+} from "../../state/action-creators/products";
 
 export const ProductsPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProviders());
+    dispatch(getAllProducts());
   }, [dispatch]);
 
-  const { providers } = useSelector((state: RootState) => state.providers);
+  const { products } = useSelector((state: RootState) => state.products);
 
   return (
-    <Layout title="Proveedores">
+    <Layout title="Productos">
       <MainAll
-        titlePage="Proveedores"
+        titlePage="Productos"
         link="/productos/nuevo"
-        titleButton="Agregar Proveedor"
+        titleButton="Agregar Producto"
       >
-        <CustomTable
-          data={providers}
-          titles={["nombre", "direccion", "telefono", "correo"]}
-          deleteItem={deleteProvider}
-        />
+        {
+          <CustomTable
+            data={products}
+            titles={["id", "nombre", "stock"]}
+            deleteItem={deleteProduct}
+          />
+        }
       </MainAll>
     </Layout>
   );
 };
-

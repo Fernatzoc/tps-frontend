@@ -19,13 +19,13 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { getAllCategories } from "../../state/action-creators/categories";
 import { RootState } from "../../state";
+import { newProduct } from "../../state/action-creators/products";
 
 interface values {
   nombre: string;
-  precio: string;
   stock: string;
-  categoria: string;
-  proveedor: string;
+  id_categoria: string;
+  id_proveedor: string;
 }
 
 export const ProductCreate = () => {
@@ -42,20 +42,20 @@ export const ProductCreate = () => {
   console.log(categories);
 
   const onSubmit = (values: values) => {
-    // dispatch(
-    //   newProvider(
-    //     values.nombre,
-    //     values.telefono,
-    //     values.stock,
-    //     // values.correo
-    //   )
-    // );
+    dispatch(
+      newProduct(
+        values.nombre,
+        values.stock,
+        values.id_categoria,
+        values.id_proveedor
+      )
+    );
     console.log(values);
     navigate("/productos");
   };
 
   return (
-    <Layout title="Producootos">
+    <Layout title="Productos">
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
         <Typography variant="h4" gutterBottom>
           Nuevo Producto
@@ -64,19 +64,17 @@ export const ProductCreate = () => {
           initialValues={
             {
               nombre: "",
-              precio: "",
               stock: "",
-              categoria: "",
-              proveedor: "",
+              id_categoria: "",
+              id_proveedor: "",
             } as values
           }
           onSubmit={onSubmit}
           validationSchema={Yup.object({
             nombre: Yup.string().required("Requerido"),
-            precio: Yup.string().required("Requerido"),
             stock: Yup.string().required("Requerido"),
-            categoria: Yup.string().required("Requerido"),
-            proveedor: Yup.string().required("Requerido"),
+            id_categoria: Yup.string().required("Requerido"),
+            id_proveedor: Yup.string().required("Requerido"),
           })}
         >
           {(props) => {
@@ -112,21 +110,6 @@ export const ProductCreate = () => {
                       margin="normal"
                       required
                       fullWidth
-                      label="Precio"
-                      name="precio"
-                      type="number"
-                      value={values.precio}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      helperText={
-                        errors.precio && touched.precio && errors.precio
-                      }
-                    />
-
-                    <TextField
-                      margin="normal"
-                      required
-                      fullWidth
                       label="Stock"
                       name="stock"
                       type="number"
@@ -141,14 +124,14 @@ export const ProductCreate = () => {
                       select
                       fullWidth
                       label="Categoria"
-                      name="categoria"
-                      value={values.categoria}
+                      name="id_categoria"
+                      value={values.id_categoria}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       helperText={
-                        errors.categoria &&
-                        touched.categoria &&
-                        errors.categoria
+                        errors.id_categoria &&
+                        touched.id_categoria &&
+                        errors.id_categoria
                       }
                     >
                       {categories.map((category) => (
@@ -163,14 +146,14 @@ export const ProductCreate = () => {
                       select
                       fullWidth
                       label="Proveedor"
-                      name="proveedor"
-                      value={values.proveedor}
+                      name="id_proveedor"
+                      value={values.id_proveedor}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       helperText={
-                        errors.proveedor &&
-                        touched.proveedor &&
-                        errors.proveedor
+                        errors.id_proveedor &&
+                        touched.id_proveedor &&
+                        errors.id_proveedor
                       }
                     >
                       {providers.map((provider) => (
