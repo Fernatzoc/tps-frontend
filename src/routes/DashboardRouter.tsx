@@ -9,11 +9,13 @@ import {
   ProvidersPage,
   ProviderCreate,
   UsersCreate,
-  UsersPage,
   UserUpdate,
   ProductsPage,
   ProductCreate,
   ProductUpdate,
+  TransactionsPage,
+  TransactionCreate,
+  TransactionUpdate,
 } from "../pages";
 import { RootState } from "../state";
 
@@ -26,7 +28,7 @@ export const DashboardRouter = () => {
         <Route>
           <Route index element={<Dashboard />} />
 
-          <Route path="usuarios" element={<UsersPage />} />
+          <Route path="usuarios" element={<TransactionsPage />} />
           <Route path="usuarios/nuevo" element={<UsersCreate />} />
           <Route path="usuarios/actualizar/:id" element={<UserUpdate />} />
 
@@ -47,6 +49,13 @@ export const DashboardRouter = () => {
           <Route path="productos" element={<ProductsPage />} />
           <Route path="productos/nuevo" element={<ProductCreate />} />
           <Route path="productos/actualizar/:id" element={<ProductUpdate />} />
+
+          <Route path="transacciones" element={<TransactionsPage />} />
+          <Route path="transacciones/nuevo" element={<TransactionCreate />} />
+          <Route
+            path="transacciones/actualizar/:id"
+            element={<TransactionUpdate />}
+          />
 
           <Route path="*" element={<Navigate replace to="/" />} />
         </Route>

@@ -34,6 +34,12 @@ const menuItems = [
     path: "/productos",
     icon: <MailOutlineOutlinedIcon />,
   },
+  {
+    text: "Transacciones",
+    path: "/transacciones",
+    icon: <MailOutlineOutlinedIcon />,
+  },
+  ,
 ];
 
 export const Sidebar = () => {

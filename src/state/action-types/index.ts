@@ -32,6 +32,12 @@ export enum ActionType {
   DELETE_PRODUCT = "product_delete",
   UPDATE_PRODUCT = "product_update",
 
+  //Transactions
+  NEW_TRANSACTION = "new_transaction",
+  GET_ALL_TRANSACTIONS = "transactions_loaded",
+  DELETE_TRANSACTION = "transaction_delete",
+  UPDATE_TRANSACTION = "transaction_update",
+
   //UI
   OPEN_SIDEBAR = "ui_open_sidebar",
   CLOSE_SIDEBAR = "ui_close_sidebar",

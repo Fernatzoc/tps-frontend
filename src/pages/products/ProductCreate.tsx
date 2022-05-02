@@ -11,10 +11,7 @@ import { Form, Formik } from "formik";
 import { Layout } from "../../components";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  newProvider,
-  getAllProviders,
-} from "../../state/action-creators/providers";
+import { getAllProviders } from "../../state/action-creators/providers";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { getAllCategories } from "../../state/action-creators/categories";

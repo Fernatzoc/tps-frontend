@@ -3,6 +3,7 @@ import { authReducer } from "./authReducer";
 import { categoriesReducer } from "./categoriesReducer";
 import { productsReducer } from "./productsReducer";
 import { providersReducer } from "./providersReducer";
+import { transactionsReducer } from "./transactionsReducer";
 import { uiReducer } from "./uiReducer";
 
 const reducers = combineReducers({
@@ -11,6 +12,7 @@ const reducers = combineReducers({
   providers: providersReducer,
   categories: categoriesReducer,
   products: productsReducer,
+  transactios: transactionsReducer,
 });
 
 export default reducers;

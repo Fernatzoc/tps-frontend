@@ -49,3 +49,20 @@ export interface Category {
   created_at: Date;
   id: string;
 }
+
+export interface Transaction {
+  id: string;
+  id_producto: string;
+  fecha: string;
+  movimiento: string;
+  cantidad: string;
+  costo_unitario: string;
+  total: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
+export enum Movimiento {
+  Entrada = "entrada",
+  Salida = "salida",
+}
