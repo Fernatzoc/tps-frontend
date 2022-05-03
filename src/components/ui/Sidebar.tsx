@@ -39,7 +39,6 @@ const menuItems = [
     path: "/transacciones",
     icon: <MailOutlineOutlinedIcon />,
   },
-  ,
 ];
 
 export const Sidebar = () => {
