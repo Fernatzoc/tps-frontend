@@ -22,7 +22,7 @@ export const Dashboard = () => {
             <CustomCard
               title="Productos"
               value="12"
-              iconColor="primary.main"
+              iconColor="error.main"
               icon={<AttachMoneyIcon />}
             />
           </Grid>
@@ -30,7 +30,7 @@ export const Dashboard = () => {
             <CustomCard
               title="Compras"
               value="12"
-              iconColor="primary.main"
+              iconColor="success.main"
               icon={<AttachMoneyIcon />}
             />
           </Grid>
@@ -38,7 +38,7 @@ export const Dashboard = () => {
             <CustomCard
               title="Proveedores"
               value="12"
-              iconColor="primary.main"
+              iconColor="warning.main"
               icon={<AttachMoneyIcon />}
             />
           </Grid>

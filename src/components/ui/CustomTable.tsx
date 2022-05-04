@@ -4,8 +4,19 @@ import { useDispatch } from "react-redux";
 import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import { Category, Product, Proveedor, Transaction, User } from "../../interfaces";
+import {
+  DataGrid,
+  GridColDef,
+  GridValueGetterParams,
+  esES,
+} from "@mui/x-data-grid";
+import {
+  Category,
+  Product,
+  Proveedor,
+  Transaction,
+  User,
+} from "../../interfaces";
 
 interface Props {
   deleteItem: (id: string) => void;
@@ -17,7 +28,11 @@ export const CustomTable: FC<Props> = ({ deleteItem, data, titles }) => {
   const dispatch = useDispatch();
 
   let columns: GridColDef[] = titles.map((field: any) => {
-    return { field: field, headerName: field, minWidth: 150 };
+    return {
+      field: field,
+      headerName: field.charAt(0).toUpperCase() + field.slice(1),
+      minWidth: 150,
+    };
   });
 
   columns = columns.concat(
@@ -61,6 +76,7 @@ export const CustomTable: FC<Props> = ({ deleteItem, data, titles }) => {
   return (
     <div style={{ height: 380, width: "100%" }}>
       <DataGrid
+        localeText={esES.components.MuiDataGrid.defaultProps.localeText}
         rows={data}
         columns={columns}
         pageSize={5}

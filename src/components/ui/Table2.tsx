@@ -52,7 +52,7 @@ export const Table2 = () => {
         <DataGrid
           rows={rows}
           columns={columns}
-          pageSize={7}
+          pageSize={5}
           rowsPerPageOptions={[5]}
           checkboxSelection
           disableSelectionOnClick

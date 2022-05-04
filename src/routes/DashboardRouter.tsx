@@ -8,6 +8,8 @@ import {
   CategoryUpdate,
   ProvidersPage,
   ProviderCreate,
+  ProviderUpdate,
+  UsersPage,
   UsersCreate,
   UserUpdate,
   ProductsPage,
@@ -28,7 +30,7 @@ export const DashboardRouter = () => {
         <Route>
           <Route index element={<Dashboard />} />
 
-          <Route path="usuarios" element={<TransactionsPage />} />
+          <Route path="usuarios" element={<UsersPage />} />
           <Route path="usuarios/nuevo" element={<UsersCreate />} />
           <Route path="usuarios/actualizar/:id" element={<UserUpdate />} />
 
@@ -36,7 +38,7 @@ export const DashboardRouter = () => {
           <Route path="proveedores/nuevo" element={<ProviderCreate />} />
           <Route
             path="proveedores/actualizar/:id"
-            element={<ProductUpdate />}
+            element={<ProviderUpdate />}
           />
 
           <Route path="categorias" element={<CategoriesPage />} />

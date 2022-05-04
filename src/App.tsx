@@ -1,21 +1,13 @@
 import { Provider } from "react-redux";
 import { store } from "./state";
 import { AppRouter } from "./routes/AppRouter";
-import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
-
-const theme = createTheme({
-  palette: {
-    mode: "light",
-    background: {
-      default: "#f9fafc",
-    },
-  },
-});
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { lightTheme } from "./theme";
 
 const App = () => {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={lightTheme}>
         <CssBaseline />
         <AppRouter />
       </ThemeProvider>
