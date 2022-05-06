@@ -27,12 +27,12 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Chart.js Bar Chart",
+      text: "Compras y ventas",
     },
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const labels = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"];
 const scores = [6, 5, 5, 5, 3, 4, 6, 4, 5];
 const scores2 = [2, 5, 3, 5, 5, 4, 6, 2, 9];
 
@@ -40,12 +40,12 @@ export const data = {
   labels,
   datasets: [
     {
-      label: "Dataset 1",
+      label: "Compras",
       data: scores,
       backgroundColor: "rgba(255, 99, 132, 0.5)",
     },
     {
-      label: "Dataset 2",
+      label: "Ventas",
       data: scores2,
       backgroundColor: "rgba(53, 162, 235, 0.5)",
     },

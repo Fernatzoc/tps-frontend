@@ -13,6 +13,7 @@ import * as Yup from "yup";
 import { Form, Formik, FormikHelpers } from "formik";
 import { startLogin } from "../state/action-creators/auth";
 import { useDispatch } from "react-redux";
+import { Card } from "@mui/material";
 
 interface values {
   email: string;
@@ -39,8 +40,8 @@ export const LoginPage = () => {
       <Formik
         initialValues={
           {
-            email: "correo1@correo.com",
-            password: "123456798Nba*",
+            email: "",
+            password: "",
           } as values
         }
         onSubmit={onSubmit}
@@ -63,60 +64,62 @@ export const LoginPage = () => {
 
           return (
             <Container component="main" maxWidth="xs">
-              <Box
-                sx={{
-                  marginTop: 8,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                  <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                  Iniciar Sesión
-                </Typography>
-                <Form>
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    label="Correo"
-                    name="email"
-                    value={values.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    helperText={errors.email && touched.email && errors.email}
-                  />
-
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    label="Contraseña"
-                    name="password"
-                    type="password"
-                    value={values.password}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    helperText={
-                      errors.password && touched.password && errors.password
-                    }
-                  />
-                  <DialogActions>
-                    <Button
-                      type="submit"
+              <Card style={{marginTop: "75px", padding: "10px"}}>
+                <Box
+                  sx={{
+                    marginTop: 8,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+                    <LockOutlinedIcon />
+                  </Avatar>
+                  <Typography component="h1" variant="h5">
+                    Iniciar Sesión
+                  </Typography>
+                  <Form>
+                    <TextField
+                      margin="normal"
+                      required
                       fullWidth
-                      variant="contained"
-                      disabled={isSubmitting}
-                      sx={{ mt: 3, mb: 2 }}
-                    >
-                      Iniciar Sesión
-                    </Button>
-                  </DialogActions>
-                </Form>
-              </Box>
+                      label="Correo"
+                      name="email"
+                      value={values.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      helperText={errors.email && touched.email && errors.email}
+                    />
+
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      label="Contraseña"
+                      name="password"
+                      type="password"
+                      value={values.password}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      helperText={
+                        errors.password && touched.password && errors.password
+                      }
+                    />
+                    <DialogActions>
+                      <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        disabled={isSubmitting}
+                        sx={{ mt: 3, mb: 2 }}
+                      >
+                        Iniciar Sesión
+                      </Button>
+                    </DialogActions>
+                  </Form>
+                </Box>
+              </Card>
             </Container>
           );
         }}
