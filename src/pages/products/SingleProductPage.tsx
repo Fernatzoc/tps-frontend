@@ -1,10 +1,7 @@
 import {
-  Box,
   Button,
   Card,
-  CardContent,
   Container,
-  Divider,
   Grid,
   Stack,
   Typography,
@@ -21,12 +18,13 @@ export const SingleProductPage = () => {
   const [products, setproducts] = useState([]);
   const [entradas, setEntradas] = useState([]);
   const [salidas, setSalidas] = useState([]);
+  const baseURL: string | undefined = process.env.BASE_URL;
 
   const { id } = useParams();
 
   useEffect(() => {
     const getProduct = async () => {
-      const url = `http://localhost:8000/api/product/${id}`;
+      const url = `${baseURL}/product/${id}`;
       const result = await axios.get(url);
 
       setproducts(result.data.product);
@@ -46,7 +44,7 @@ export const SingleProductPage = () => {
     <Layout title="Productos">
       <Container maxWidth={false}>
         <Stack
-          style={{margin: "0"}}
+          style={{ margin: "0" }}
           direction="row"
           alignItems="center"
           justifyContent="end"
