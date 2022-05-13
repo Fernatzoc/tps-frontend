@@ -28,6 +28,7 @@ export const ProductsPage = () => {
             data={products}
             titles={["id", "nombre", "stock"]}
             deleteItem={deleteProduct}
+            view={true}
           />
         }
       </MainAll>

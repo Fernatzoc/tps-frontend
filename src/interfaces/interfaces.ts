@@ -28,6 +28,11 @@ export interface Proveedor {
   id: string;
 }
 
+export interface SingleProduct {
+  product:      Product[];
+  transactions: Transaction[];
+}
+
 export interface Product {
   id: string;
   nombre: string;

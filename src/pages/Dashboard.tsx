@@ -4,7 +4,7 @@ import {
   DoughnutChart,
   Layout,
   LineChart,
-  Table2,
+  TableDashboard,
   VerticalBarChart,
 } from "../components";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
@@ -60,7 +60,7 @@ export const Dashboard = () => {
             <DoughnutChart />
           </Grid>
           <Grid item lg={8} md={12} xl={9} xs={12}>
-            <Table2 />
+            {/* <Table2 /> */}
           </Grid>
         </Grid>
       </Container>

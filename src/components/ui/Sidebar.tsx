@@ -3,7 +3,6 @@ import {
   Divider,
   Drawer,
   List,
-  ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
@@ -21,31 +20,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeSideMenu } from "../../state/action-creators/ui";
 import { Link, useLocation } from "react-router-dom";
 
-const menuItems = [
-  { text: "Dashboard", path: "/", icon: <GridViewOutlinedIcon /> },
-  { text: "Usuarios", path: "/usuarios", icon: <GroupOutlinedIcon /> },
-  {
-    text: "Proveedores",
-    path: "/proveedores",
-    icon: <AccountCircleOutlinedIcon />,
-  },
-  {
-    text: "Categorias",
-    path: "/categorias",
-    icon: <CategoryOutlinedIcon />,
-  },
-  {
-    text: "Productos",
-    path: "/productos",
-    icon: <Inventory2OutlinedIcon />,
-  },
-  {
-    text: "Transacciones",
-    path: "/transacciones",
-    icon: <InventoryOutlinedIcon />,
-  },
-];
-
 export const Sidebar = () => {
   const { sidemenuOpen } = useSelector((state: RootState) => state.ui);
 
@@ -55,6 +29,41 @@ export const Sidebar = () => {
   const onSubmit = () => {
     dispatch(closeSideMenu());
   };
+
+  const { role } = useSelector((state: RootState) => state.auth);
+
+  let menuItems;
+
+  if (role === "Administrador") {
+    menuItems = [
+      { text: "Dashboard", path: "/", icon: <GridViewOutlinedIcon /> },
+      { text: "Usuarios", path: "/usuarios", icon: <GroupOutlinedIcon /> },
+      {
+        text: "Proveedores",
+        path: "/proveedores",
+        icon: <AccountCircleOutlinedIcon />,
+      },
+      {
+        text: "Categorias",
+        path: "/categorias",
+        icon: <CategoryOutlinedIcon />,
+      },
+      {
+        text: "Productos",
+        path: "/productos",
+        icon: <Inventory2OutlinedIcon />,
+      },
+      {
+        text: "Transacciones",
+        path: "/transacciones",
+        icon: <InventoryOutlinedIcon />,
+      },
+    ];
+  } else {
+    menuItems = [
+      { text: "Dashboard", path: "/", icon: <GridViewOutlinedIcon /> },
+    ];
+  }
 
   return (
     <Drawer anchor="left" open={sidemenuOpen} onClose={onSubmit}>

@@ -9,7 +9,7 @@ export * from "./ui/Sidebar";
 export * from "./ui/Sidebar";
 export * from "./ui/MainAll";
 export * from "./ui/CustomCard";
-export * from "./ui/Table2";
+export * from "./ui/TableDashboard";
 
 export * from "./charts/LineChart";
 export * from "./charts/VerticalBarChart";

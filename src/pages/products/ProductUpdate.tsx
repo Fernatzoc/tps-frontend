@@ -4,6 +4,7 @@ import {
   Card,
   Container,
   DialogActions,
+  MenuItem,
   Stack,
   TextField,
   Typography,
@@ -16,39 +17,49 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { RootState } from "../../state";
-import { Proveedor } from "../../interfaces";
-import { updateProvider } from "../../state/action-creators/providers";
+import { Product } from "../../interfaces";
+import { updateProduct } from "../../state/action-creators/products";
+import { useEffect } from "react";
+import { getAllCategories } from "../../state/action-creators/categories";
+import { getAllProviders } from "../../state/action-creators/providers";
 
 interface values {
   nombre: string;
-  direccion: string;
-  correo: string;
-  telefono: string;
+  stock: string;
+  id_categoria: string;
+  id_proveedor: string;
 }
 
 export const ProductUpdate = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { id } = useParams();
+  useEffect(() => {
+    dispatch(getAllCategories());
+    dispatch(getAllProviders());
+  }, [dispatch]);
+  const { categories } = useSelector((state: RootState) => state.categories);
   const { providers } = useSelector((state: RootState) => state.providers);
-  const provider = providers.find((provider: Proveedor) => provider.id == id);
+
+  const { id } = useParams();
+  const { products } = useSelector((state: RootState) => state.products);
+  const product = products.find((product: Product) => product.id == id);
 
   const onSubmit = (values: values) => {
     dispatch(
-      updateProvider(
+      updateProduct(
         id,
         values.nombre,
-        values.telefono,
-        values.direccion,
-        values.correo
+        values.stock,
+        values.id_categoria,
+        values.id_proveedor
       )
     );
-    navigate("/proveedores");
+    navigate("/productos");
   };
 
   return (
-    <Layout title="Proveedores">
+    <Layout title="productos">
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
         <Card style={{ padding: "35px" }}>
           <Stack
@@ -71,22 +82,20 @@ export const ProductUpdate = () => {
           </Stack>
 
           <Formik
-            initialValues={
+             initialValues={
               {
-                nombre: provider?.nombre,
-                direccion: provider?.direccion,
-                correo: provider?.correo,
-                telefono: provider?.telefono,
-              } as values
+              nombre: product?.nombre,
+              stock: product?.stock,
+              id_categoria: product?.id_categoria,
+              id_proveedor: product?.id_proveedor,
+            } as unknown as values
             }
             onSubmit={onSubmit}
             validationSchema={Yup.object({
               nombre: Yup.string().required("Requerido"),
-              correo: Yup.string()
-                .email("Debe ser válido el correo electrónico")
-                .required("Requerido"),
-              telefono: Yup.string().required("Requerido"),
-              direccion: Yup.string().required("Requerido"),
+              stock: Yup.string().required("Requerido"),
+              id_categoria: Yup.string().required("Requerido"),
+              id_proveedor: Yup.string().required("Requerido"),
             })}
           >
             {(props) => {
@@ -123,48 +132,60 @@ export const ProductUpdate = () => {
                         margin="normal"
                         required
                         fullWidth
-                        label="Telefono"
-                        name="telefono"
-                        type="tel"
-                        value={values.telefono}
+                        label="Stock"
+                        name="stock"
+                        type="number"
+                        value={values.stock}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         helperText={
-                          errors.telefono && touched.telefono && errors.telefono
+                          errors.stock && touched.stock && errors.stock
                         }
                       />
 
                       <TextField
                         margin="normal"
-                        required
+                        select
                         fullWidth
-                        label="Direccion"
-                        name="direccion"
-                        type="text"
-                        value={values.direccion}
+                        label="Categoria"
+                        name="id_categoria"
+                        value={values.id_categoria}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         helperText={
-                          errors.direccion &&
-                          touched.direccion &&
-                          errors.direccion
+                          errors.id_categoria &&
+                          touched.id_categoria &&
+                          errors.id_categoria
                         }
-                      />
+                      >
+                        {categories.map((category) => (
+                          <MenuItem key={category.id} value={category.id}>
+                            {category.nombre}
+                          </MenuItem>
+                        ))}
+                      </TextField>
 
                       <TextField
                         margin="normal"
-                        required
+                        select
                         fullWidth
-                        label="Correo"
-                        name="correo"
-                        type="text"
-                        value={values.correo}
+                        label="Proveedor"
+                        name="id_proveedor"
+                        value={values.id_proveedor}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         helperText={
-                          errors.correo && touched.correo && errors.correo
+                          errors.id_proveedor &&
+                          touched.id_proveedor &&
+                          errors.id_proveedor
                         }
-                      />
+                      >
+                        {providers.map((provider) => (
+                          <MenuItem key={provider.id} value={provider.id}>
+                            {provider.nombre}
+                          </MenuItem>
+                        ))}
+                      </TextField>
 
                       <DialogActions>
                         <Button

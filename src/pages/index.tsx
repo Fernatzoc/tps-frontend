@@ -12,6 +12,7 @@ export * from "./categories/CategoryUpdate";
 export * from "./products/ProductsPage";
 export * from "./products/ProductCreate";
 export * from "./products/ProductUpdate";
+export * from "./products/SingleProductPage";
 export * from "./transactions/TransactionsPage";
 export * from "./transactions/TransactionCreate";
 export * from "./transactions/TransactionUpdate";

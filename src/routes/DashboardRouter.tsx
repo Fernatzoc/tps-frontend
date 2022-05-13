@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Layout } from "../components";
 import {
   Dashboard,
   CategoriesPage,
@@ -13,6 +12,7 @@ import {
   UsersCreate,
   UserUpdate,
   ProductsPage,
+  SingleProductPage,
   ProductCreate,
   ProductUpdate,
   TransactionsPage,
@@ -49,6 +49,7 @@ export const DashboardRouter = () => {
           />
 
           <Route path="productos" element={<ProductsPage />} />
+          <Route path="productos/:id" element={<SingleProductPage />} />
           <Route path="productos/nuevo" element={<ProductCreate />} />
           <Route path="productos/actualizar/:id" element={<ProductUpdate />} />
 
@@ -62,8 +63,8 @@ export const DashboardRouter = () => {
           <Route path="*" element={<Navigate replace to="/" />} />
         </Route>
       ) : (
-        <Route element={<Layout />}>
-          <Route index element={<h2>Visualizador</h2>} />
+        <Route>
+          <Route index element={<Dashboard />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Route>
       )}

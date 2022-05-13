@@ -37,6 +37,15 @@ export const startLogin = (email: string, password: string) => {
   };
 };
 
+export const logout = () => {
+  return async (dispatch: Dispatch<Action>) => {
+    localStorage.clear();
+    dispatch({
+      type: ActionType.AUTH_LOGOUT
+    })
+  };
+};
+
 export const startNewUser = (
   name: string,
   email: string,

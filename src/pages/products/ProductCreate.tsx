@@ -39,8 +39,6 @@ export const ProductCreate = () => {
   const { categories } = useSelector((state: RootState) => state.categories);
   const { providers } = useSelector((state: RootState) => state.providers);
 
-  console.log(categories);
-
   const onSubmit = (values: values) => {
     dispatch(
       newProduct(
