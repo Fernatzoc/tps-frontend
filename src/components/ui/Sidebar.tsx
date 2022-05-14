@@ -15,6 +15,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import InventoryOutlinedIcon from "@mui/icons-material/InventoryOutlined";
+import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 import { RootState } from "../../state";
 import { useDispatch, useSelector } from "react-redux";
 import { closeSideMenu } from "../../state/action-creators/ui";
@@ -58,10 +59,20 @@ export const Sidebar = () => {
         path: "/transacciones",
         icon: <InventoryOutlinedIcon />,
       },
+      {
+        text: "Reportes",
+        path: "/reportes",
+        icon: <AssessmentOutlinedIcon />,
+      },
     ];
   } else {
     menuItems = [
       { text: "Dashboard", path: "/", icon: <GridViewOutlinedIcon /> },
+      {
+        text: "Reportes",
+        path: "/reportes",
+        icon: <AssessmentOutlinedIcon />,
+      },
     ];
   }
 

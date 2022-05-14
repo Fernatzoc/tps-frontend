@@ -3,7 +3,6 @@ import {
   CustomCard,
   DoughnutChart,
   Layout,
-  LineChart,
   TableDashboard,
   VerticalBarChart,
 } from "../components";
@@ -34,9 +33,6 @@ export const Dashboard = () => {
 
     getDashboardInfo();
   }, []);
-
-  console.log(count);
-  console.log(topProducts);
 
   return (
     <Layout title="Usuarios">

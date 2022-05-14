@@ -16,3 +16,4 @@ export * from "./products/SingleProductPage";
 export * from "./transactions/TransactionsPage";
 export * from "./transactions/TransactionCreate";
 export * from "./transactions/TransactionUpdate";
+export * from "./reports/ReportsPage";
