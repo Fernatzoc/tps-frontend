@@ -209,7 +209,7 @@ export const TransactionUpdate = () => {
                           variant="contained"
                           sx={{ mt: 3, mb: 2 }}
                         >
-                          Actualizar Proveedor
+                          Actualizar Transaccion
                         </Button>
                       </DialogActions>
                     </Form>

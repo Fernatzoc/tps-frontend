@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { FC } from "react";
 import { Bar } from "react-chartjs-2";
 
 ChartJS.register(
@@ -19,43 +20,44 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: "Compras y ventas",
-    },
-  },
-};
+interface Props {
+  info: any[];
+  color: string;
+  name: string;
+  text: string;
+}
 
-const labels = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio"];
-const scores = [6, 5, 5, 5, 3, 4, 6, 4, 5];
-const scores2 = [2, 5, 3, 5, 5, 4, 6, 2, 9];
+export const VerticalBarChart: FC<Props> = ({ info, color, name, text }) => {
+  const lab = info.map((item) => item.nombre);
+  const value = info.map((item) => item.productos);
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: "Compras",
-      data: scores,
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+      title: {
+        display: true,
+        text: text,
+      },
     },
-    {
-      label: "Ventas",
-      data: scores2,
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
-    },
-  ],
-};
+  };
 
-export const VerticalBarChart = () => {
+  const data = {
+    labels: lab,
+    datasets: [
+      {
+        label: name,
+        data: value,
+        backgroundColor: `rgba(${color})`,
+      },
+    ],
+  };
+
   return (
     <Card>
-      <Bar options={options} data={data} />;
+      <Bar options={options} data={data} />
     </Card>
   );
 };

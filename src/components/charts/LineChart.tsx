@@ -46,7 +46,7 @@ export const LineChart = () => {
 
   return (
     <Card>
-      <Line data={data} options={options} />;
+      <Line data={data} options={options} />
     </Card>
   );
 };
