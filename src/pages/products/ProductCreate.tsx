@@ -87,7 +87,7 @@ export const ProductCreate = () => {
             onSubmit={onSubmit}
             validationSchema={Yup.object({
               nombre: Yup.string().required("Requerido"),
-              stock: Yup.string().required("Requerido"),
+              stock: Yup.number().min(0, 'Valor minimo 0.').required("Requerido"),
               id_categoria: Yup.string().required("Requerido"),
               id_proveedor: Yup.string().required("Requerido"),
             })}
@@ -129,6 +129,7 @@ export const ProductCreate = () => {
                         label="Stock"
                         name="stock"
                         type="number"
+                        InputProps={{ inputProps: { min: 0 } }}
                         value={values.stock}
                         onChange={handleChange}
                         onBlur={handleBlur}

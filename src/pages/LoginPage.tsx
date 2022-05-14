@@ -40,8 +40,8 @@ export const LoginPage = () => {
       <Formik
         initialValues={
           {
-            email: "",
-            password: "",
+            email: "correo1@correo.com",
+            password: "123456789",
           } as values
         }
         onSubmit={onSubmit}

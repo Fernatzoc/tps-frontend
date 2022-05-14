@@ -54,8 +54,9 @@ export const newTransaction = (
       toast.success(response.data.message);
     } catch (error: any) {
       if (error.response) {
-        //toast.error(error.response.data.message);
-        toast.error("Error comprueb sus datos");
+        toast.error(error.response.data.message);
+        // toast.error("Error comprueb sus datos");
+        console.log(error.response.data);
       }
       console.log(error);
     }
@@ -84,11 +85,11 @@ export const updateTransaction = (
         payload: transaction,
       });
 
-      toast.success("Transaccion actualizada correctamente");
+      toast.success(response.data.message);
     } catch (error: any) {
       if (error.response) {
         //console.log(error.response.data.message);
-        toast.error("Error compruebe sus datos");
+        toast.error(error.response.data.message);
       }
       console.log(error);
     }

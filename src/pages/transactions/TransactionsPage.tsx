@@ -25,7 +25,7 @@ export const TransactionsPage = () => {
       >
         <CustomTable
           data={transactions}
-          titles={["fecha", "movimiento", "cantidad", "total"]}
+          titles={["fecha", "movimiento", "cantidad", "costo_unitario", "total"]}
           deleteItem={deleteTransaction}
         />
       </MainAll>
